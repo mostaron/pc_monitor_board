@@ -9,4 +9,6 @@ class PCInfo:
         self.mem_usage = 0
         self.disk_usage = 0
         self.disk_total = 0
-        self.gpu_usage = 0
+        # self.gpu_usage = 0
+        self.date = ''
+        self.time = ''

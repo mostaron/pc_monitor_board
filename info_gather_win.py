@@ -5,6 +5,7 @@ import wmi
 import os
 import time
 import GPUtil
+import datetime
 
 from serial import SerialException
 
@@ -85,7 +86,9 @@ if __name__ == '__main__':
         mem_usage()
         disk_usage()
         disk_total()
-        gpu_usage()
+        # gpu_usage()gpu_usage
+        pc_info.date = datetime.datetime.now().strftime('%Y-%m-%d')
+        pc_info.time = datetime.datetime.now().strftime('%H:%M')
         info = json.dumps(pc_info.__dict__)
         print(info)
         try:
@@ -93,5 +96,5 @@ if __name__ == '__main__':
         except SerialException:
             serial_communication.clear()
             pass
-        time.sleep(2)
+
 
