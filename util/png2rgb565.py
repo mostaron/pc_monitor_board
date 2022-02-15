@@ -2,8 +2,8 @@ from PIL import Image
 import struct
 
 
-im = Image.open('bg.png')
-out = open('bg.raw', "wb")
+im = Image.open('eva.png')
+out = open('eva.raw', "wb")
 isSWAP = True
 
 image_height = im.size[1]

@@ -32,23 +32,23 @@ def cpu_name():
 
 
 def cpu_usage():
-    pc_info.cpu_usage = round(psutil.cpu_percent(), 2)
+    pc_info.cpu_usage = int(psutil.cpu_percent())
     return "CPU Usage:   {}%".format(psutil.cpu_percent())
 
 
 def mem_usage():
-    pc_info.mem_usage = round(psutil.virtual_memory().percent, 2)
+    pc_info.mem_usage = int(psutil.virtual_memory().percent)
     return "Memory Usage:  {}%".format(psutil.virtual_memory().percent)
 
 
 def mem_total():
     mem = psutil.virtual_memory().total / 1024 / 1024 / 1024
-    pc_info.mem_total = round(mem, 2)
+    pc_info.mem_total = round(mem, 0)
     return "Memory Total:  {:2f}GB".format(mem)
 
 
 def disk_usage():
-    pc_info.disk_usage = round(psutil.disk_usage("/").percent, 2)
+    pc_info.disk_usage = int(psutil.disk_usage("/").percent)
     return "Disk Usage:  {}%".format(psutil.disk_usage("/").percent)
 
 
@@ -60,7 +60,7 @@ def disk_total():
 
 def cpu_frequency():
     cpu = wmi.WMI().Win32_Processor()[0]
-    pc_info.cpu_frequency = round(cpu.CurrentClockSpeed, 2)
+    pc_info.cpu_frequency = round(round(cpu.CurrentClockSpeed, 2)/1000, 3)
     return "CPU Frequency:  {}MHz".format(cpu.CurrentClockSpeed)
 
 
